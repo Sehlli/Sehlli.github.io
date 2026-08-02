@@ -1,543 +1,440 @@
-<!doctype html>
-<html class="no-js" lang="en">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mouadh Sehli — Mechanical Design Engineer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0b0c0e;
+    --surface:#131417;
+    --border:#1f2023;
+    --border-soft:#191a1d;
+    --text:#f0efec;
+    --text-muted:#93949a;
+    --text-dim:#55565b;
+    --accent:#c9a876;
+    --accent-soft:rgba(201,168,118,0.14);
+    --line-art:#3a3d43;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--bg);
+    color:var(--text);
+    font-family:'Inter',sans-serif;
+    font-size:16px;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  ::selection{background:var(--accent); color:#0b0c0e;}
+  a{color:inherit; text-decoration:none;}
+  img,svg{display:block; max-width:100%;}
+  :focus-visible{outline:1px solid var(--accent); outline-offset:4px;}
+  .wrap{max-width:1120px; margin:0 auto; padding:0 40px;}
+  .mono{font-family:'JetBrains Mono',monospace;}
+  .kicker{
+    font-family:'JetBrains Mono',monospace; font-size:12px; letter-spacing:0.18em;
+    text-transform:uppercase; color:var(--accent); display:flex; align-items:center; gap:12px;
+  }
+  .kicker::before{content:''; width:22px; height:1px; background:var(--accent);}
+  h1,h2,h3{font-family:'Space Grotesk',sans-serif; font-weight:600; letter-spacing:-0.01em;}
 
-    <head>
-        <!-- meta data -->
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+  /* ---------- NAV ---------- */
+  header{position:fixed; top:0; left:0; right:0; z-index:100; background:rgba(11,12,14,0.72); backdrop-filter:blur(14px);}
+  .nav{display:flex; align-items:center; justify-content:space-between; height:76px; border-bottom:1px solid transparent; transition:border-color .3s;}
+  header.scrolled .nav{border-bottom-color:var(--border);}
+  .logo{font-family:'Space Grotesk',sans-serif; font-weight:600; font-size:15px; letter-spacing:-0.01em; display:flex; align-items:center; gap:9px;}
+  .logo .dot{width:6px; height:6px; border-radius:50%; background:var(--accent);}
+  nav.links{display:flex; gap:40px;}
+  nav.links a{font-size:14px; color:var(--text-muted); transition:color .2s;}
+  nav.links a:hover{color:var(--text);}
+  .nav-cta{font-size:13px; color:var(--text); border:1px solid var(--border); padding:9px 18px; border-radius:100px; transition:border-color .2s, background .2s;}
+  .nav-cta:hover{border-color:var(--accent); background:var(--accent-soft);}
+  .menu-btn{display:none; flex-direction:column; gap:5px; background:none; border:none; cursor:pointer; padding:8px;}
+  .menu-btn span{width:20px; height:1.5px; background:var(--text);}
 
-        <!--font-family-->
-		<link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900&amp;subset=devanagari,latin-ext" rel="stylesheet">
-        
-        <!-- title of site -->
-        <title>Mouadh SEHLI</title>
+  /* ---------- HERO ---------- */
+  #hero{
+    min-height:100vh; display:flex; align-items:center; position:relative; padding-top:76px;
+  }
+  .glow{
+    position:absolute; top:10%; right:-10%; width:640px; height:640px; border-radius:50%;
+    background:radial-gradient(circle, rgba(201,168,118,0.10) 0%, rgba(201,168,118,0) 70%);
+    pointer-events:none;
+  }
+  .hero-grid{display:grid; grid-template-columns:1.2fr 0.8fr; align-items:center; gap:40px; position:relative;}
+  h1.name{font-size:clamp(48px,6.4vw,86px); line-height:1.03; margin:22px 0 26px;}
+  h1.name .thin{font-weight:400; color:var(--text-muted); display:block;}
+  .hero-sub{max-width:460px; color:var(--text-muted); font-size:17px; margin-bottom:38px;}
+  .hero-sub b{color:var(--text); font-weight:500;}
+  .hero-cta{display:flex; gap:14px; flex-wrap:wrap;}
+  .btn{
+    font-size:14px; padding:13px 26px; border-radius:100px; display:inline-flex; align-items:center; gap:8px;
+    transition:all .22s ease; cursor:pointer;
+  }
+  .btn-primary{background:var(--accent); color:#0b0c0e; font-weight:600; border:1px solid var(--accent);}
+  .btn-primary:hover{background:#dabb8c; transform:translateY(-1px);}
+  .btn-ghost{color:var(--text); border:1px solid var(--border);}
+  .btn-ghost:hover{border-color:var(--text-muted); background:var(--surface);}
 
-        <!-- For favicon png -->
-		<link rel="shortcut icon" type="image/icon" href="assets/logo/favicon.png"/>
-       
-        <!--font-awesome.min.css-->
-        <link rel="stylesheet" href="assets/css/font-awesome.min.css">
+  .hero-art{display:flex; justify-content:center; align-items:center;}
+  .hero-art svg{width:100%; max-width:340px; animation:spin 60s linear infinite;}
+  @keyframes spin{ from{transform:rotate(0deg);} to{transform:rotate(360deg);} }
 
-		<!--flat icon css-->
-		<link rel="stylesheet" href="assets/css/flaticon.css">
+  .scroll-cue{position:absolute; bottom:44px; left:40px; display:flex; align-items:center; gap:10px; color:var(--text-dim); font-size:12px;}
+  .scroll-cue .line{width:1px; height:34px; background:linear-gradient(var(--accent), transparent);}
 
-		<!--animate.css-->
-        <link rel="stylesheet" href="assets/css/animate.css">
+  /* ---------- SECTION ---------- */
+  section{padding:150px 0;}
+  .section-head{margin-bottom:64px;}
+  .section-head h2{font-size:clamp(30px,3.6vw,42px); margin-top:16px;}
+  .section-head p{color:var(--text-muted); max-width:480px; margin-top:14px; font-size:15.5px;}
 
-        <!--owl.carousel.css-->
-        <link rel="stylesheet" href="assets/css/owl.carousel.min.css">
-		<link rel="stylesheet" href="assets/css/owl.theme.default.min.css">
-		
-        <!--bootstrap.min.css-->
-        <link rel="stylesheet" href="assets/css/bootstrap.min.css">
-		
-		<!-- bootsnav -->
-		<link rel="stylesheet" href="assets/css/bootsnav.css" >	
-        
-        <!--style.css-->
-        <link rel="stylesheet" href="assets/css/style.css">
-        
-        <!--responsive.css-->
-        <link rel="stylesheet" href="assets/css/responsive.css">
-        
-        <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-		
-        <!--[if lt IE 9]>
-			<script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-			<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-        <![endif]-->
+  /* ---------- ABOUT ---------- */
+  .about-grid{display:grid; grid-template-columns:1.3fr 1fr; gap:80px;}
+  .about-grid p{color:var(--text-muted); font-size:16px; margin-bottom:20px; max-width:52ch;}
+  .about-grid p b{color:var(--text); font-weight:500;}
+  .fact-list{display:flex; flex-direction:column;}
+  .fact-row{display:flex; justify-content:space-between; padding:18px 0; border-top:1px solid var(--border-soft); font-size:14.5px;}
+  .fact-row:last-child{border-bottom:1px solid var(--border-soft);}
+  .fact-row .k{color:var(--text-dim); font-family:'JetBrains Mono',monospace; font-size:12.5px; letter-spacing:0.04em;}
+  .fact-row .v{color:var(--text); text-align:right;}
 
-    </head>
-	
-	<body>
-		<!--[if lte IE 9]>
-            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
-        <![endif]-->
-		
-		<!-- top-area Start -->
-		<header class="top-area">
-			<div class="header-area">
-				<!-- Start Navigation -->
-			    <nav class="navbar navbar-default bootsnav navbar-fixed dark no-background">
+  /* ---------- CAPABILITIES ---------- */
+  .cap-grid{display:grid; grid-template-columns:repeat(2,1fr); gap:48px 60px;}
+  .cap-group .kicker{margin-bottom:16px;}
+  .cap-words{font-size:16.5px; color:var(--text-muted); line-height:1.9;}
+  .cap-words span{color:var(--text);}
+  .cap-words .sep{color:var(--text-dim); margin:0 8px;}
 
-			        <div class="container">
+  /* ---------- PROJECTS ---------- */
+  .proj-grid{display:grid; grid-template-columns:1fr 1fr; gap:1px; background:var(--border-soft); border:1px solid var(--border-soft);}
+  .proj-card{background:var(--bg); padding:44px 40px; transition:background .25s;}
+  .proj-card:hover{background:var(--surface);}
+  .proj-top{display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:28px;}
+  .proj-media{position:relative; height:260px; margin:-44px -40px 28px; overflow:hidden; background:var(--surface); border-bottom:1px solid var(--border-soft);}
+  .proj-photo{width:100%; height:100%; object-fit:cover; display:block; filter:saturate(0.94);}
+  .proj-photo-inset{
+    position:absolute; bottom:14px; right:14px; width:88px; height:88px; object-fit:cover;
+    border:2px solid var(--bg); border-radius:8px; box-shadow:0 6px 18px rgba(0,0,0,0.45); background:#fff;
+  }
+  .proj-media-tag{
+    position:absolute; top:14px; left:14px; font-family:'JetBrains Mono',monospace; font-size:10.5px; letter-spacing:0.06em;
+    color:var(--text); background:rgba(11,12,14,0.65); backdrop-filter:blur(6px); padding:5px 10px; border-radius:100px; border:1px solid rgba(255,255,255,0.1);
+  }
+  .proj-index{font-family:'JetBrains Mono',monospace; font-size:12px; color:var(--text-dim);}
+  .proj-icon{width:34px; height:34px; opacity:.85;}
+  .proj-title{font-size:22px; margin-bottom:10px;}
+  .proj-desc{color:var(--text-muted); font-size:14.5px; margin-bottom:18px; max-width:42ch;}
+  .proj-meta{font-family:'JetBrains Mono',monospace; font-size:12px; color:var(--text-dim); letter-spacing:0.02em;}
+  .proj-meta span{color:var(--text-muted);}
 
-			            <!-- Start Header Navigation -->
-			            <div class="navbar-header">
-			                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-menu">
-			                    <i class="fa fa-bars"></i>
-			                </button>
-			                <a class="navbar-brand" href="index.html">Mouadh SEHLI</a>
-			            </div><!--/.navbar-header-->
-			            <!-- End Header Navigation -->
+  /* ---------- EXPERIENCE (minimal timeline) ---------- */
+  .tl{position:relative; padding-left:2px;}
+  .tl-item{display:grid; grid-template-columns:150px 24px 1fr; gap:0; padding-bottom:56px; position:relative;}
+  .tl-item:last-child{padding-bottom:0;}
+  .tl-date{font-family:'JetBrains Mono',monospace; font-size:12.5px; color:var(--text-dim); padding-top:3px;}
+  .tl-marker{display:flex; justify-content:center; position:relative;}
+  .tl-marker .dot{width:8px; height:8px; border-radius:50%; background:var(--accent); margin-top:6px; z-index:1;}
+  .tl-marker .stem{position:absolute; top:20px; bottom:-56px; width:1px; background:var(--border);}
+  .tl-item:last-child .tl-marker .stem{display:none;}
+  .tl-role{font-size:19px; font-weight:600; font-family:'Space Grotesk',sans-serif; margin-bottom:6px;}
+  .tl-role span{color:var(--text-muted); font-weight:400;}
+  .tl-desc{color:var(--text-muted); font-size:14.5px; max-width:56ch;}
 
-			            <!-- Collect the nav links, forms, and other content for toggling -->
-			            <div class="collapse navbar-collapse menu-ui-design" id="navbar-menu">
-			                <ul class="nav navbar-nav navbar-right" data-in="fadeInDown" data-out="fadeOutUp">
-			                <li class=" smooth-menu active"></li>
-			                    <li class=" smooth-menu"><a href="#education">education</a></li>
-			                    <li class="smooth-menu"><a href="#skills">skills</a></li>
+  /* ---------- CONTACT ---------- */
+  #contact{text-align:center;}
+  .contact-kicker{justify-content:center;}
+  #contact h2{font-size:clamp(34px,6vw,64px); margin-top:20px; margin-bottom:28px;}
+  .contact-email{
+    display:inline-block; font-family:'Space Grotesk',sans-serif; font-size:clamp(20px,3vw,28px);
+    color:var(--accent); border-bottom:1px solid rgba(201,168,118,0.35); padding-bottom:6px; margin-bottom:48px; transition:border-color .2s;
+  }
+  .contact-email:hover{border-color:var(--accent);}
+  .social-row{display:flex; justify-content:center; gap:28px; font-size:13.5px; color:var(--text-muted);}
+  .social-row a:hover{color:var(--text);}
 
-			                    <li class="smooth-menu"><a href="#experience">experience</a></li>
-								<li class="smooth-menu"><a href="#projects">Projects</a></li>
-			                    <li class="smooth-menu"><a href="#contact">contact</a></li>
-			                </ul><!--/.nav -->
-			            </div><!-- /.navbar-collapse -->
-			        </div><!--/.container-->
-			    </nav><!--/nav-->
-			    <!-- End Navigation -->
-			</div><!--/.header-area-->
+  footer{border-top:1px solid var(--border-soft); padding:32px 0; display:flex; justify-content:space-between; align-items:center; font-family:'JetBrains Mono',monospace; font-size:11.5px; color:var(--text-dim); flex-wrap:wrap; gap:10px;}
 
-		    <div class="clearfix"></div>
+  .reveal{opacity:0; transform:translateY(16px); transition:opacity .7s ease, transform .7s ease;}
+  .reveal.in{opacity:1; transform:translateY(0);}
 
-		</header><!-- /.top-area-->
-		<!-- top-area End -->
-	
-		<!--welcome-hero start -->
-		<section id="welcome-hero" class="welcome-hero">
-			<div class="container">
-				<div class="row">
-					<div class="col-md-12 text-center">
-						<div class="header-text">
-							<h2>hi <span>,</span> i am <br> Mouadh Sehli <span>.</span>   </h2>
-							<p>Mechanical engineer and CAD Designer</p>
-							<a href="assets/download/MOUADH SEHLI.pdf" download>download resume</a>
-						</div><!--/.header-text-->
-					</div><!--/.col-->
-				</div><!-- /.row-->
-			</div><!-- /.container-->
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    .reveal{opacity:1; transform:none; transition:none;}
+    .hero-art svg{animation:none;}
+  }
 
-		</section><!--/.welcome-hero-->
-		<!--welcome-hero end -->
+  @media (max-width:900px){
+    nav.links{display:none;}
+    .menu-btn{display:flex;}
+    .hero-grid{grid-template-columns:1fr;}
+    .hero-art{display:none;}
+    .about-grid,.cap-grid,.proj-grid{grid-template-columns:1fr;}
+    .tl-item{grid-template-columns:100px 20px 1fr;}
+    .scroll-cue{display:none;}
+    .wrap{padding:0 24px;}
+  }
+</style>
+</head>
+<body>
 
-		<!--about start -->
-<!--about start -->
-<section id="about" class="about">
-    <div class="section-heading text-center">
-        <h2>about me</h2>
+<header id="siteHeader">
+  <div class="wrap nav">
+    <div class="logo"><span class="dot"></span>Mouadh Sehli</div>
+    <nav class="links">
+      <a href="#about">About</a>
+      <a href="#capabilities">Capabilities</a>
+      <a href="#work">Work</a>
+      <a href="#experience">Experience</a>
+    </nav>
+    <div style="display:flex; align-items:center; gap:16px;">
+      <a href="#contact" class="nav-cta">Get in touch</a>
+      <button class="menu-btn" aria-label="Menu" id="menuBtn"><span></span><span></span><span></span></button>
     </div>
-    <div class="container">
-        <div class="about-content">
-            <div class="row">
-                <div class="col-sm-6">
-                    <div class="single-about-txt">
-                        <h3>
-                            As a mechanical engineer with a year of experience, my expertise lies in the realm of Computer-Aided Design (CAD) and simulation work. 
-                            I thrive on the challenges presented by designing and analyzing mechanical systems using cutting-edge technology. My passion 
-                            for innovation drives me to seek out new solutions and push the boundaries of what's possible in engineering. With a commitment to lifelong learning, 
-                            I am dedicated to honing my skills and contributing to the advancement of engineering excellence.
-                        </h3>
-                        <div class="row">
-                            
-                            <div class="col-sm-4">
-                                <div class="single-about-add-info">
-                                    <h3>email</h3>
-                                    <p>mouadh.sehli@gmail.com</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-offset-1 col-sm-5">
-                    <div class="single-about-img">
-                        <img src="profile_image.png" alt="Profile Photo">
-                        <div class="about-list-icon">
-                            <ul>
-                                <li>
-                                    <a href="https://www.linkedin.com/in/mouadh-sehli-099a60222" target="_blank">
-                                        <i  class="fa fa-linkedin" aria-hidden="true"></i>
-                                    </a>
-                                </li><!-- / li -->
-                            </ul><!-- / ul -->
-                        </div><!-- /.about-list-icon -->
-                    </div>
-                </div>
-            </div>
+  </div>
+</header>
+
+<main>
+  <!-- ============ HERO ============ -->
+  <section id="hero">
+    <div class="glow"></div>
+    <div class="wrap hero-grid">
+      <div>
+        <div class="kicker reveal">Mechanical Design Engineer</div>
+        <h1 class="name reveal">Precision is<span class="thin">a design choice.</span></h1>
+        <p class="hero-sub reveal">I'm Mouadh Sehli — I design hardware that survives contact with tolerances, tooling, and deadlines. <b>Three years</b> of experience across SolidWorks, FEA, and ANSYS, from first sketch to first article.</p>
+        <div class="hero-cta reveal">
+          <a href="#work" class="btn btn-primary">View selected work</a>
+          <a href="#contact" class="btn btn-ghost">Get in touch</a>
         </div>
+      </div>
+      <div class="hero-art reveal">
+        <svg viewBox="0 0 200 200" fill="none" stroke="var(--line-art)" stroke-width="1">
+          <circle cx="100" cy="100" r="82" stroke="var(--accent)" stroke-opacity="0.5"/>
+          <circle cx="100" cy="100" r="58"/>
+          <circle cx="100" cy="100" r="14" stroke="var(--accent)"/>
+          <g stroke-opacity="0.7">
+            <circle cx="100" cy="30" r="5"/>
+            <circle cx="100" cy="170" r="5"/>
+            <circle cx="30" cy="100" r="5"/>
+            <circle cx="170" cy="100" r="5"/>
+            <circle cx="150" cy="50" r="5"/>
+            <circle cx="50" cy="150" r="5"/>
+            <circle cx="150" cy="150" r="5"/>
+            <circle cx="50" cy="50" r="5"/>
+          </g>
+          <path d="M100 18v-14M100 182v14M18 100h-14M182 100h14" stroke-opacity="0.4"/>
+        </svg>
+      </div>
     </div>
-</section><!--/.about-->
-<!--about end -->
+    <div class="scroll-cue"><div class="line"></div>Scroll</div>
+  </section>
 
-
-		
-		<!--education start -->
-		<section id="education" class="education">
-			<div class="section-heading text-center">
-				<h2>education</h2>
-			</div>
-			<div class="container">
-				<div class="education-horizontal-timeline">
-					<div class="row">
-						<div class="col-sm-4">
-							<div class="single-horizontal-timeline">
-								<div class="experience-time">
-									<h2>2018 - 2019</h2>
-									<h3>Bachelor <span>of </span> Mathematics</h3>
-								</div><!--/.experience-time-->
-								<div class="timeline-horizontal-border">
-									<i class="fa fa-circle" aria-hidden="true"></i>
-									<span class="single-timeline-horizontal"></span>
-								</div>
-								<div class="timeline">
-									<div class="timeline-content">
-										<h4 class="title">
-											Sadiki School
-										</h4>
-										<h5>Tunis,Tunisia</h5>
-			
-									</div><!--/.timeline-content-->
-								</div><!--/.timeline-->
-							</div>
-						</div>
-						<div class="col-sm-4">
-							<div class="single-horizontal-timeline">
-								<div class="experience-time">
-									<h2>2020 - 2022</h2>
-									<h3> Physics and Mathematics Prepa </h3>
-								</div><!--/.experience-time-->
-								<div class="timeline-horizontal-border">
-									<i class="fa fa-circle" aria-hidden="true"></i>
-									<span class="single-timeline-horizontal"></span>
-								</div>
-								<div class="timeline">
-									<div class="timeline-content">
-										<h4 class="title">
-											TUNIS
-										</h4>
-										<p class="description">
-											Mathematics, Physics. 
-										</p>
-									</div><!--/.timeline-content-->
-								</div><!--/.timeline-->
-							</div>
-						</div>
-						<div class="col-sm-4">
-							<div class="single-horizontal-timeline">
-								<div class="experience-time">
-									<h2>2004 - 2008</h2>
-									<h3>MECHANICAL ENGINEER DEGREE </h3>
-								</div><!--/.experience-time-->
-								<div class="timeline-horizontal-border">
-									<i class="fa fa-circle" aria-hidden="true"></i>
-									<span class="single-timeline-horizontal spacial-horizontal-line
-									"></span>
-								</div>
-								<div class="timeline">
-									<div class="timeline-content">
-										<h4 class="title">
-											university of Engineering 	Tunis
-										</h4>
-										<h5>Tunis, Manar</h5>
-										<p class="description">
-											
-										</p>
-									</div><!--/.timeline-content-->
-								</div><!--/.timeline-->
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-
-		</section><!--/.education-->
-		<!--education end -->
-
-		<!--skills start -->
-		<!-- Skills Start -->
-<!-- Skills Start -->
-<section id="skills" class="skills">
-    <div class="skill-content">
-        <div class="section-heading text-center">
-            <h2>Skills</h2>
+  <!-- ============ ABOUT ============ -->
+  <section id="about">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div class="kicker">About</div>
+        <h2>Grounded in how things<br>actually get made.</h2>
+      </div>
+      <div class="about-grid">
+        <div class="reveal">
+          <p>I'm a mechanical design engineer with <b>three years of experience</b> designing precision hardware — from early concept sketches through simulation and first-article inspection. I like problems where the physics, the manufacturing process, and the budget all disagree with each other.</p>
+          <p>Most of my work sits at the intersection of <b>SolidWorks modeling, FEA validation, and ANSYS simulation</b>. I'm a Certified SolidWorks Associate (CSWA) and Certified SolidWorks Professional (CSWP), and I still read the drawing before I trust the model.</p>
+          <p>[Add a line here about what you enjoy outside of work, or a specific industry focus.]</p>
         </div>
-        <div class="container">
-            <div class="row">
-                <div class="col-md-4">
-                    <div class="single-skill-content">
-                        <img src="solidworks.jpg" alt="SOLIDWORKS" style="height: 120px;">
-                        <div class="progress-bar" style="width: 90%;"></div>
-                    </div>
-                    <div class="single-skill-content">
-                        <img src="catia.jpg" alt="CATIA" style="height: 120px;">
-                        <div class="progress-bar" style="width: 85%;"></div>
-                    </div>
-                    <div class="single-skill-content">
-                        <img src="abaqus.jpg" alt="ABAQUS" style="height: 120px;">
-                        <div class="progress-bar" style="width: 97%;"></div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="single-skill-content">
-                        <img src="ansys.jpg" alt="ANSYS" style="height: 120px;">
-                        <div class="progress-bar" style="width: 90%;"></div>
-                    </div>
-                    <div class="single-skill-content">
-                        <img src="autocad.jpg" alt="AUTOCAD" style="height: 120px;">
-                        <div class="progress-bar" style="width: 90%;"></div>
-                    </div>
-                    <div class="single-skill-content">
-                        <img src="fusion360.jpg" alt="FUSION360" style="height: 120px;">
-                        <div class="progress-bar" style="width: 85%;"></div>
-                    </div>
-                </div>
-               
-            </div><!-- /.row -->
-        </div><!-- /.container -->      
-    </div><!-- /.skill-content-->
-</section><!--/.skills-->
-
-
-		<!--experience start -->
-		<section id="experience" class="experience">
-			<div class="section-heading text-center">
-				<h2>experience</h2>
-			</div>
-			<div class="container">
-				<div class="experience-content">
-						<div class="main-timeline">
-							<ul>
-								<li>
-									<div class="single-timeline-box fix">
-										<div class="row">
-											<div class="col-md-5">
-												<div class="experience-time text-right">
-													<h2>JUIL 2023 - Present</h2>
-													<h3>Mechanical engineer </h3>
-												</div><!--/.experience-time-->
-											</div><!--/.col-->
-											<div class="col-md-offset-1 col-md-5">
-												<div class="timeline">
-													<div class="timeline-content">
-														<h4 class="title">
-															<span><i class="fa fa-circle" aria-hidden="true"></i></span>
-															Luceor LAB
-														</h4>
-														<h5>Ariana,Tunis</h5>
-														<ul class="description">
-															<li>- Developed and optimized a new mechanical component using thermal analysis, stress and vibration simulations, achieving a 15% reduction in manufacturing costs and a 10% increase in product performance.</li>
-															<li>- Collaborated with cross-functional teams to troubleshoot design issues, employing simulation techniques that led to a 20% decrease in product defects and a 25% boost in customer satisfaction.</li>
-															<li>- Implemented design standards and best practices, leveraging simulations for a 30% improvement in design efficiency and a 20% reduction in design cycle time.</li>
-															<li>- Conducted thorough thermal analysis simulations to enhance component functionality and durability, ensuring compliance with performance requirements and regulations.</li>
-															<li>- Utilized stress and vibration simulations to identify and address design weaknesses, resulting in improved product reliability, safety, and overall performance.</li>
-														</ul>
-														
-													</div><!--/.timeline-content-->
-												</div><!--/.timeline-->
-											</div><!--/.col-->
-										</div>
-									</div><!--/.single-timeline-box-->
-								</li>
-
-
-							</ul>
-						</div><!--.main-timeline-->
-					</div><!--.experience-content-->
-			</div>
-
-		</section><!--/.experience-->
-		<!--experience end -->
-<!-- Projects Start -->
-<section id="projects" class="projects">
-    <div class="section-heading text-center">
-        <h2 style="font-family: 'Montserrat', sans-serif;">Projects</h2>
+        <div class="fact-list reveal">
+          <div class="fact-row"><span class="k">EDUCATION</span><span class="v">[Your Degree], [University]</span></div>
+          <div class="fact-row"><span class="k">LOCATION</span><span class="v">Tunis, Tunisia</span></div>
+          <div class="fact-row"><span class="k">CERTIFICATIONS</span><span class="v">CSWA · CSWP</span></div>
+          <div class="fact-row"><span class="k">EXPERIENCE</span><span class="v">3 years</span></div>
+          <div class="fact-row"><span class="k">CURRENTLY</span><span class="v">[Current Role / Company]</span></div>
+        </div>
+      </div>
     </div>
-    <div class="container">
-        <div class="row">
-            <div class="col-md-4">
-                <div class="single-project">
-                    <img src="Dac.jpg" alt="Project 1" class="project-image">
-                    <div class="project-description">
-                        <h3 style="font-family: 'Roboto', sans-serif;"><b>Design of concentrate Feeder with Backing Gate  </b></h3>
-                        <p style="font-family: 'Open Sans', sans-serif;">Description of Design of Dac project goes here.</p>
-                    </div>
-                </div>
-            </div>
-            <!-- Add more project items here -->
-			<div class="col-md-4">
-                <div class="single-project">
-                    <img src="arm2.png" alt="Project 1" class="project-image">
-                    <div class="project-description">
-                        <h3 style="font-family: 'Roboto', sans-serif;"><b>Design of Arm robot</b></h3>
-                        <p style="font-family: 'Open Sans', sans-serif;">Description of Design of arm robot project goes here.</p>
-                    </div>
-                </div>
-            </div>
-			<div class="col-md-4">
-                <div class="single-project">
-                    <img src="arm.png" alt="Project 1" class="project-image">
-                    <div class="project-description">
-                        <h3 style="font-family: 'Roboto', sans-serif;"><b>Design of robot S</b></h3>
-                        <p style="font-family: 'Open Sans', sans-serif;">Description of Design of arm robot S project goes here.</p>
-                    </div>
-                </div>
-            </div>
-			<div class="col-md-4">
-                <div class="single-project">
-                    <img src="fold_phone.png" alt="Project 1" class="project-image">
-                    <div class="project-description">
-                        <h3 style="font-family: 'Roboto', sans-serif;"><b>Design of phone holder</b></h3>
-                        <p style="font-family: 'Open Sans', sans-serif;">Description of Design of holder robot project goes here.</p>
-                    </div>
-                </div>
-            </div>
-			<div class="col-md-4">
-                <div class="single-project">
-                    <img src="manette.png" alt="Project 1" class="project-image">
-                    <div class="project-description">
-                        <h3 style="font-family: 'Roboto', sans-serif;"><b>Design of Ps4 controller</b></h3>
-                        <p style="font-family: 'Open Sans', sans-serif;">Description of Design of ps4 controller project goes here.</p>
-                    </div>
-                </div>
-            </div>
-			<div class="col-md-4">
-                <div class="single-project">
-                    <img src="table.png" alt="Project 1" class="project-image">
-                    <div class="project-description">
-                        <h3 style="font-family: 'Roboto', sans-serif;"><b>Design of lift table</b></h3>
-                        <p style="font-family: 'Open Sans', sans-serif;">Description of Design of lift table  project goes here,</p>
-                    </div>
-                </div>
-            </div>
-        </div><!-- /.row -->
-    </div><!-- /.container -->
-</section><!--/.projects-->
-<!-- Projects End -->
+  </section>
 
+  <!-- ============ CAPABILITIES ============ -->
+  <section id="capabilities">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div class="kicker">Capabilities</div>
+        <h2>Tools I reach for.</h2>
+      </div>
+      <div class="cap-grid reveal">
+        <div class="cap-group">
+          <div class="kicker">CAD &amp; Modeling</div>
+          <p class="cap-words"><span>SolidWorks</span><span class="sep">·</span><span>AutoCAD</span></p>
+        </div>
+        <div class="cap-group">
+          <div class="kicker">Analysis &amp; Simulation</div>
+          <p class="cap-words"><span>FEA</span><span class="sep">·</span><span>ANSYS</span><span class="sep">·</span><span>GD&amp;T</span><span class="sep">·</span><span>Tolerance Stacks</span></p>
+        </div>
+        <div class="cap-group">
+          <div class="kicker">Certifications</div>
+          <p class="cap-words"><span>CSWA</span><span class="sep">·</span><span>CSWP</span></p>
+        </div>
+        <div class="cap-group">
+          <div class="kicker">Manufacturing</div>
+          <p class="cap-words"><span>CNC Machining</span><span class="sep">·</span><span>Sheet Metal</span><span class="sep">·</span><span>[Add processes you've worked with]</span></p>
+        </div>
+      </div>
+    </div>
+  </section>
 
+  <!-- ============ WORK ============ -->
+  <section id="work">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div class="kicker">Selected Work</div>
+        <h2>Four problems worth<br>talking through.</h2>
+      </div>
 
-		<!--contact start -->
-		<section id="contact" class="contact">
-			<div class="section-heading text-center">
-				<h2>contact me</h2>
-			</div>
-			<div class="container">
-				<div class="contact-content">
-					<div class="row">
-						<div class="col-md-offset-1 col-md-5 col-sm-6">
-							<div class="single-contact-box">
-								<div class="contact-form">
-									<form>
-										<div class="row">
-											<div class="col-sm-6 col-xs-12">
-												<div class="form-group">
-												  <input type="text" class="form-control" id="name" placeholder="Name*" name="name">
-												</div><!--/.form-group-->
-											</div><!--/.col-->
-											<div class="col-sm-6 col-xs-12">
-												<div class="form-group">
-													<input type="email" class="form-control" id="email" placeholder="Email*" name="email">
-												</div><!--/.form-group-->
-											</div><!--/.col-->
-										</div><!--/.row-->
-										<div class="row">
-											<div class="col-sm-12">
-												<div class="form-group">
-													<input type="text" class="form-control" id="subject" placeholder="Subject" name="subject">
-												</div><!--/.form-group-->
-											</div><!--/.col-->
-										</div><!--/.row-->
-										<div class="row">
-											<div class="col-sm-12">
-												<div class="form-group">
-													<textarea class="form-control" rows="8" id="comment" placeholder="Message" ></textarea>
-												</div><!--/.form-group-->
-											</div><!--/.col-->
-										</div><!--/.row-->
-										<div class="row">
-											<div class="col-sm-12">
-												<div class="single-contact-btn">
-													<a class="contact-btn" href="#" role="button">submit</a>
-												</div><!--/.single-single-contact-btn-->
-											</div><!--/.col-->
-										</div><!--/.row-->
-									</form><!--/form-->
-								</div><!--/.contact-form-->
-							</div><!--/.single-contact-box-->
-						</div><!--/.col-->
-						<div class="col-md-offset-1 col-md-5 col-sm-6">
-							<div class="single-contact-box">
-								<div class="contact-adress">
-									<div class="contact-add-head">
-										<h3>Mouadh Sehli</h3>
-										<p>Mechanical engineer</p>
-									</div>
-									<div class="contact-add-info">
-										<div class="single-contact-add-info">
-											<h3>email</h3>
-											<p>mouadh.sehli@gmail.com</p>
-										</div>
-										
-									</div>
-								</div><!--/.contact-adress-->
-						
-							</div><!--/.single-contact-box-->
-						</div><!--/.col-->
-					</div><!--/.row-->
-				</div><!--/.contact-content-->
-			</div><!--/.container-->
+      <div class="proj-grid reveal">
+        <div class="proj-card">
+          <div class="proj-media">
+            <span class="proj-media-tag">Prototype · Built &amp; tested</span>
+            <img class="proj-photo" src="images/mesh360-hero.jpg" alt="MESH360 PRO assembled prototype with rotating antenna array">
+            <img class="proj-photo-inset" src="images/mesh360-cad.png" alt="MESH360 PRO SolidWorks CAD model">
+          </div>
+          <div class="proj-top">
+            <span class="proj-index">01</span>
+          </div>
+          <h3 class="proj-title">MESH360 PRO</h3>
+          <p class="proj-desc">Outdoor mesh-network node for Luceor — designed the full weatherproof enclosure, connector panel, and rotating multi-antenna carriage in SolidWorks, then carried it through prototyping, assembly, and bench testing.</p>
+          <div class="proj-meta">SolidWorks · Luceor · <span>CAD-to-hardware build</span></div>
+        </div>
 
-		</section><!--/.contact-->
-		<!--contact end -->
+        <div class="proj-card">
+          <div class="proj-media">
+            <span class="proj-media-tag">Product design · Luceor</span>
+            <img class="proj-photo" src="images/air3004-hero.jpg" alt="AIR3004 enclosure shown from four angles">
+            <img class="proj-photo-inset" src="images/air3004-cad.png" alt="AIR3004 SolidWorks CAD model">
+          </div>
+          <div class="proj-top">
+            <span class="proj-index">02</span>
+          </div>
+          <h3 class="proj-title">AIR3004</h3>
+          <p class="proj-desc">Outdoor housing for Luceor's AIR3004 unit — sculpted the enclosure surfacing in SolidWorks around the internal electronics and mounting hardware, balancing a clean exterior with sealing and serviceability requirements.</p>
+          <div class="proj-meta">SolidWorks · Luceor · <span>Surfacing &amp; enclosure design</span></div>
+        </div>
 
-		<!--footer-copyright start-->
-		<footer id="footer-copyright" class="footer-copyright">
-			<div class="container">
-				<div class="hm-footer-copyright text-center">
-					<p>
-						&copy; copyright Mouadh Sehli.</a>
-					</p><!--/p-->
-				</div><!--/.text-center-->
-			</div><!--/.container-->
+        <div class="proj-card">
+          <div class="proj-top">
+            <span class="proj-index">03</span>
+            <svg class="proj-icon" viewBox="0 0 40 40" fill="none" stroke="var(--accent)" stroke-width="1.3">
+              <rect x="7" y="7" width="26" height="26"/><path d="M7 7l26 26M33 7L7 33"/><circle cx="20" cy="20" r="3"/>
+            </svg>
+          </div>
+          <h3 class="proj-title">Precision CNC Fixture</h3>
+          <p class="proj-desc">Multi-axis workholding fixture for a five-part CNC line, locating each part to a shared datum.</p>
+          <div class="proj-meta">4140 Steel · Wire EDM · <span>−1 QC step</span></div>
+        </div>
 
-			<div id="scroll-Top">
-				<div class="return-to-top">
-					<i class="fa fa-angle-up " id="scroll-top" ></i>
-				</div>
-				
-			</div><!--/.scroll-Top-->
-			
-        </footer><!--/.footer-copyright-->
-		<!--footer-copyright end-->
-		
-		<!-- Include all js compiled plugins (below), or include individual files as needed -->
+        <div class="proj-card">
+          <div class="proj-top">
+            <span class="proj-index">04</span>
+            <svg class="proj-icon" viewBox="0 0 40 40" fill="none" stroke="var(--accent)" stroke-width="1.3">
+              <path d="M10 30c0-11 4-19 10-19s10 8 10 19"/><path d="M6 30h28"/><path d="M14 30v-4M26 30v-4"/>
+            </svg>
+          </div>
+          <h3 class="proj-title">Consumer Product Enclosure</h3>
+          <p class="proj-desc">Two-shot molded enclosure for a handheld device, built around a single core-and-cavity tool.</p>
+          <div class="proj-meta">PC/ABS + TPE · 2-shot molding · <span>1 tool</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-		<script src="assets/js/jquery.js"></script>
-        
-        <!--modernizr.min.js-->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
-		
-		<!--bootstrap.min.js-->
-        <script src="assets/js/bootstrap.min.js"></script>
-		
-		<!-- bootsnav js -->
-		<script src="assets/js/bootsnav.js"></script>
-		
-		<!-- jquery.sticky.js -->
-		<script src="assets/js/jquery.sticky.js"></script>
-		
-		<!-- for progress bar start-->
+  <!-- ============ EXPERIENCE ============ -->
+  <section id="experience">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div class="kicker">Experience</div>
+        <h2>Where I've built it.</h2>
+      </div>
 
-		<!-- progressbar js -->
-		<script src="assets/js/progressbar.js"></script>
+      <div class="tl reveal">
+        <div class="tl-item">
+          <div class="tl-date">[Year] — Present</div>
+          <div class="tl-marker"><div class="dot"></div><div class="stem"></div></div>
+          <div>
+            <div class="tl-role">[Current Role] <span>· [Current Company]</span></div>
+            <p class="tl-desc">[Add your current role here — let me know the title, company, and what you're working on.]</p>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-date">Jul 2023 — Nov 2024</div>
+          <div class="tl-marker"><div class="dot"></div><div class="stem"></div></div>
+          <div>
+            <div class="tl-role">Mechanical Engineer <span>· Luceor, Tunis</span></div>
+            <p class="tl-desc">Leveraged Design for Manufacture and Assembly (DFMA) principles, resulting in a 15% reduction in manufacturing costs and a 10% improvement in product efficiency through thermal analysis and stress simulation.</p>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-date">Feb 2023 — Jun 2023</div>
+          <div class="tl-marker"><div class="dot"></div></div>
+          <div>
+            <div class="tl-role">Internship Trainee <span>· Luceor, Tunis</span></div>
+            <p class="tl-desc">Contributed to the conceptualization and refinement of the TetraDrone system design — built detailed 3D models and engineering drawings, ran simulations to optimize performance and stability, assisted with material selection, and supported prototype assembly and testing.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-		<!-- appear js -->
-		<script src="assets/js/jquery.appear.js"></script>
+  <!-- ============ CONTACT ============ -->
+  <section id="contact">
+    <div class="wrap">
+      <div class="kicker contact-kicker reveal">Get in touch</div>
+      <h2 class="reveal">Let's build something<br>that holds tolerance.</h2>
+      <a href="mailto:mouadh.sehli@example.com" class="contact-email reveal">mouadh.sehli@example.com</a>
+      <div class="social-row reveal">
+        <a href="https://www.linkedin.com/in/mouadh-sehli" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="#">Résumé</a>
+      </div>
+    </div>
+  </section>
+</main>
 
-		<!-- for progress bar end -->
+<footer class="wrap">
+  <span>© 2026 Mouadh Sehli</span>
+  <span>Mechanical Design Engineer, based in the Bay Area</span>
+</footer>
 
-		<!--owl.carousel.js-->
-        <script src="assets/js/owl.carousel.min.js"></script>
+<script>
+  const items = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} });
+  }, {threshold:0.12});
+  items.forEach(el=>io.observe(el));
 
+  const header = document.getElementById('siteHeader');
+  window.addEventListener('scroll', ()=>{
+    header.classList.toggle('scrolled', window.scrollY > 20);
+  });
 
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
-		
-        
-        <!--Custom JS-->
-        <script src="assets/js/custom.js"></script>
-        
-    </body>
-	
+  const menuBtn = document.getElementById('menuBtn');
+  let mobileNav;
+  menuBtn.addEventListener('click', ()=>{
+    if(mobileNav){ mobileNav.remove(); mobileNav=null; return; }
+    mobileNav = document.createElement('div');
+    mobileNav.style.cssText = 'position:fixed;top:76px;left:0;right:0;background:#0b0c0e;border-bottom:1px solid #1f2023;padding:24px;display:flex;flex-direction:column;gap:20px;z-index:99;font-size:15px;';
+    [['About','#about'],['Capabilities','#capabilities'],['Work','#work'],['Experience','#experience'],['Contact','#contact']].forEach(([l,h])=>{
+      const a = document.createElement('a');
+      a.href = h; a.style.color = '#f0efec'; a.textContent = l;
+      a.addEventListener('click', ()=>{ mobileNav.remove(); mobileNav=null; });
+      mobileNav.appendChild(a);
+    });
+    document.body.appendChild(mobileNav);
+  });
+</script>
+
+</body>
 </html>
