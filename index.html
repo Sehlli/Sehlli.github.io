@@ -127,11 +127,11 @@
   .case.reverse .case-gallery{order:2;}
   .case.reverse .case-text{order:1;}
 
-  .case-gallery .g-main{position:relative; aspect-ratio:16/10; overflow:hidden; border:1px solid var(--border-soft);}
+  .case-gallery .g-main{position:relative; aspect-ratio:16/10; overflow:hidden; border:1px solid var(--border-soft); background:var(--surface); display:flex; align-items:center; justify-content:center;}
   .case-gallery .g-row{display:flex; gap:12px; margin-top:12px;}
-  .case-gallery .g-row figure{flex:1; position:relative; aspect-ratio:4/3; overflow:hidden; border:1px solid var(--border-soft);}
+  .case-gallery .g-row figure{flex:1; position:relative; aspect-ratio:4/3; overflow:hidden; border:1px solid var(--border-soft); background:var(--surface); display:flex; align-items:center; justify-content:center;}
   .case-gallery figure{margin:0;}
-  .case-gallery img{width:100%; height:100%; object-fit:cover; display:block; filter:saturate(0.95);}
+  .case-gallery img{width:100%; height:100%; object-fit:contain; display:block;}
   .case-gallery figcaption{
     position:absolute; bottom:10px; left:10px; font-family:'JetBrains Mono',monospace; font-size:10.5px; letter-spacing:0.05em;
     color:var(--text); background:rgba(11,12,14,0.68); backdrop-filter:blur(6px); padding:5px 10px; border-radius:100px; border:1px solid rgba(255,255,255,0.1);
@@ -338,124 +338,220 @@
     </div>
   </section>
 
-  <!-- ============ WORK ============ -->
-  <section id="work">
-    <div class="wrap">
-      <div class="section-head reveal">
-        <div class="kicker">Selected Work</div>
-        <h2>Four problems worth<br>talking through.</h2>
-      </div>
+<!-- ============ WORK ============ -->
+<section id="work">
+  <div class="wrap">
 
-      <div class="case-list reveal">
-
-        <article class="case">
-          <div class="case-head">
-            <span class="case-index">01</span>
-            <h3 class="case-title">MESH360 PRO</h3>
-            <div class="case-tags">SolidWorks · Luceor · <span>CAD-to-hardware build</span></div>
-          </div>
-          <div class="case-body">
-            <div class="case-gallery">
-              <figure class="g-main">
-                <img src="image/mesh360-cad.png" alt="MESH360 PRO SolidWorks CAD model, front view">
-                <figcaption>CAD Model — SolidWorks</figcaption>
-              </figure>
-              <div class="g-row">
-                <figure>
-                  <img src="image/mesh360-hero.jpg" alt="MESH360 PRO assembled prototype with antenna array exposed">
-                  <figcaption>Prototype build</figcaption>
-                </figure>
-                <figure>
-                  <img src="image/mesh360-alt.jpeg" alt="MESH360 PRO closed enclosure, front view">
-                  <figcaption>Final assembly</figcaption>
-                </figure>
-              </div>
-            </div>
-            <div class="case-text">
-              <p class="case-desc">Outdoor mesh-network node for Luceor. I designed the full weatherproof enclosure, connector panel, and rotating multi-antenna carriage in SolidWorks, then carried the part through prototyping, assembly, and bench testing — the photos above are the actual build sitting next to the model it came from.</p>
-            </div>
-          </div>
-        </article>
-
-        <article class="case reverse">
-          <div class="case-head">
-            <span class="case-index">02</span>
-            <h3 class="case-title">AIR3004</h3>
-            <div class="case-tags">SolidWorks · Luceor · <span>Surfacing &amp; enclosure design</span></div>
-          </div>
-          <div class="case-body">
-            <div class="case-gallery">
-              <figure class="g-main">
-                <img src="image/air3004-hero.jpg" alt="AIR3004 enclosure shown from four rendered angles">
-                <figcaption>Design renders — four angles</figcaption>
-              </figure>
-              <div class="g-row">
-                <figure>
-                  <img src="image/air3004-cad.png" alt="AIR3004 SolidWorks CAD model, front view">
-                  <figcaption>CAD Model — SolidWorks</figcaption>
-                </figure>
-              </div>
-            </div>
-            <div class="case-text">
-              <p class="case-desc">Outdoor housing for Luceor's AIR3004 unit. I sculpted the enclosure surfacing in SolidWorks around the internal electronics and mounting hardware, balancing a clean exterior with sealing and serviceability requirements.</p>
-            </div>
-          </div>
-        </article>
-
-        <article class="case">
-          <div class="case-head">
-            <span class="case-index">03</span>
-            <h3 class="case-title">[Project Name]</h3>
-            <div class="case-tags">[Tools] · <span>[Outcome]</span></div>
-          </div>
-          <div class="case-body">
-            <div class="case-gallery">
-              <figure class="g-main">
-                <div class="g-placeholder">
-                  <svg viewBox="0 0 40 40" fill="none" stroke="var(--accent)" stroke-width="1.3">
-                    <rect x="7" y="7" width="26" height="26"/><path d="M7 7l26 26M33 7L7 33"/><circle cx="20" cy="20" r="3"/>
-                  </svg>
-                </div>
-              </figure>
-              <div class="g-row">
-                <figure><div class="g-placeholder"></div></figure>
-                <figure><div class="g-placeholder"></div></figure>
-              </div>
-            </div>
-            <div class="case-text">
-              <p class="case-desc">[Send over the CAD renders and build photos for this project and I'll drop them straight in, same as the two above.]</p>
-            </div>
-          </div>
-        </article>
-
-        <article class="case reverse">
-          <div class="case-head">
-            <span class="case-index">04</span>
-            <h3 class="case-title">[Project Name]</h3>
-            <div class="case-tags">[Tools] · <span>[Outcome]</span></div>
-          </div>
-          <div class="case-body">
-            <div class="case-gallery">
-              <figure class="g-main">
-                <div class="g-placeholder">
-                  <svg viewBox="0 0 40 40" fill="none" stroke="var(--accent)" stroke-width="1.3">
-                    <path d="M10 30c0-11 4-19 10-19s10 8 10 19"/><path d="M6 30h28"/><path d="M14 30v-4M26 30v-4"/>
-                  </svg>
-                </div>
-              </figure>
-              <div class="g-row">
-                <figure><div class="g-placeholder"></div></figure>
-              </div>
-            </div>
-            <div class="case-text">
-              <p class="case-desc">[Send over the CAD renders and build photos for this project and I'll drop them straight in, same as the two above.]</p>
-            </div>
-          </div>
-        </article>
-
-      </div>
+    <div class="section-head reveal">
+      <div class="kicker">Selected Work</div>
+      <h2>Product Design Portfolio.</h2>
     </div>
-  </section>
+
+    <!-- ================= CAD DESIGN ================= -->
+    <div class="section-head reveal" style="margin-top:80px;">
+      <div class="kicker">CAD Design</div>
+      <h2>Engineering & Product Development.</h2>
+    </div>
+
+    <div class="case-list reveal">
+
+      <article class="case">
+        <div class="case-head">
+          <span class="case-index">01</span>
+          <h3 class="case-title">MESH360 PRO</h3>
+          <div class="case-tags">SolidWorks · Luceor · <span>Mechanical Design</span></div>
+        </div>
+
+        <div class="case-body">
+          <div class="case-gallery">
+            <figure class="g-main">
+              <img src="image/mesh360-cad.png" alt="MESH360 PRO CAD Model">
+              <figcaption>CAD Model — SolidWorks</figcaption>
+            </figure>
+          </div>
+
+          <div class="case-text">
+            <p class="case-desc">
+              Complete mechanical design of the MESH360 PRO enclosure and internal architecture, optimized for manufacturing and outdoor deployment.
+            </p>
+          </div>
+        </div>
+      </article>
+
+      <article class="case">
+        <div class="case-head">
+          <span class="case-index">02</span>
+          <h3 class="case-title">AIR3004</h3>
+          <div class="case-tags">SolidWorks · Luceor · <span>Enclosure Design</span></div>
+        </div>
+
+        <div class="case-body">
+          <div class="case-gallery">
+            <figure class="g-main">
+              <img src="image/air3004-cad.png" alt="AIR3004 CAD Model">
+              <figcaption>CAD Model — SolidWorks</figcaption>
+            </figure>
+          </div>
+
+          <div class="case-text">
+            <p class="case-desc">
+              Outdoor enclosure designed around electronics integration, mounting hardware, sealing requirements, and manufacturability constraints.
+            </p>
+          </div>
+        </div>
+      </article>
+
+    </div>
+
+    <!-- ================= REAL PRODUCTS ================= -->
+    <div class="section-head reveal" style="margin-top:120px;">
+      <div class="kicker">Real Products & Assemblies</div>
+      <h2>From Design to Reality.</h2>
+    </div>
+
+    <div class="case-list reveal">
+
+      <article class="case">
+        <div class="case-head">
+          <span class="case-index">03</span>
+          <h3 class="case-title">MESH360 PRO Prototype</h3>
+          <div class="case-tags">Prototype · Assembly · <span>Validation</span></div>
+        </div>
+
+        <div class="case-body">
+          <div class="case-gallery">
+            <figure class="g-main">
+              <img src="image/mesh360-hero.jpg" alt="MESH360 PRO Prototype">
+              <figcaption>Prototype Build</figcaption>
+            </figure>
+          </div>
+
+          <div class="case-text">
+            <p class="case-desc">
+              Physical prototype assembled and tested to validate fit, functionality, and integration before production.
+            </p>
+          </div>
+        </div>
+      </article>
+
+      <article class="case">
+        <div class="case-head">
+          <span class="case-index">04</span>
+          <h3 class="case-title">MESH360 PRO Final Product</h3>
+          <div class="case-tags">Manufacturing · Production</div>
+        </div>
+
+        <div class="case-body">
+          <div class="case-gallery">
+            <figure class="g-main">
+              <img src="image/mesh360-alt.jpeg" alt="MESH360 PRO Final Assembly">
+              <figcaption>Final Assembly</figcaption>
+            </figure>
+          </div>
+
+          <div class="case-text">
+            <p class="case-desc">
+              Production-ready assembly showcasing the transition from CAD design to a fully manufactured product.
+            </p>
+          </div>
+        </div>
+      </article>
+
+      <article class="case">
+        <div class="case-head">
+          <span class="case-index">05</span>
+          <h3 class="case-title">AIR3004 Product Visualization</h3>
+          <div class="case-tags">Industrial Design · Product Development</div>
+        </div>
+
+        <div class="case-body">
+          <div class="case-gallery">
+            <figure class="g-main">
+              <img src="image/air3004-hero.jpg" alt="AIR3004 Product Render">
+              <figcaption>Product Visualization</figcaption>
+            </figure>
+          </div>
+
+          <div class="case-text">
+            <p class="case-desc">
+              Final product visualization highlighting enclosure geometry, proportions, and design intent.
+            </p>
+          </div>
+        </div>
+      </article>
+<!-- PROJECT 06 -->
+<article class="case">
+  <div class="case-head">
+    <span class="case-index">06</span>
+    <h3 class="case-title">RDK Antenna System CAD</h3>
+    <div class="case-tags">SolidWorks · Product Design · <span>CAD Development</span></div>
+  </div>
+
+  <div class="case-body">
+    <div class="case-gallery">
+      <figure class="g-main">
+        <img src="image/RDKCAD.jpg" alt="RDK CAD Model">
+        <figcaption>CAD Model — SolidWorks</figcaption>
+      </figure>
+    </div>
+
+    <div class="case-text">
+      <p class="case-desc">
+        Mechanical design and integration of the RDK communication unit, including enclosure architecture, mounting interfaces, and manufacturable components.
+      </p>
+    </div>
+  </div>
+</article>
+<article class="case">
+  <div class="case-head">
+    <span class="case-index">06</span>
+    <h3 class="case-title">RDK Antenna System PRODUCT</h3>
+    <div class="case-tags">SolidWorks · Product Design · <span>CAD Development</span></div>
+  </div>
+
+  <div class="case-body">
+    <div class="case-gallery">
+
+      <figure class="g-main">
+        <img src="image/RDK.jpg" alt="RDK CAD Model">
+        <figcaption>ASSEMBLY2</figcaption>
+      </figure>
+    </div>
+
+    <div class="case-text">
+      <p class="case-desc">
+        Mechanical design and integration of the RDK communication unit, including enclosure architecture, mounting interfaces, and manufacturable components.
+      </p>
+    </div>
+  </div>
+</article>
+<!-- PROJECT 07 -->
+<article class="case">
+  <div class="case-head">
+    <span class="case-index">07</span>
+    <h3 class="case-title">MINIMESH</h3>
+    <div class="case-tags">SolidWorks · Product Design · <span>Compact Enclosure</span></div>
+  </div>
+
+  <div class="case-body">
+    <div class="case-gallery">
+      <figure class="g-main">
+        <img src="image/MINIMESH.jpg" alt="MINIMESH CAD Model">
+        <figcaption>CAD Model — SolidWorks</figcaption>
+      </figure>
+    </div>
+
+    <div class="case-text">
+      <p class="case-desc">
+        Compact wireless networking enclosure designed for reliability, ease of assembly, and efficient use of internal space.
+      </p>
+    </div>
+  </div>
+</article>
+    </div>
+
+  </div>
+</section>
 
 <!-- ============ CLIENTS ============ -->
 <section id="clients">
