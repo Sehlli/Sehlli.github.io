@@ -149,6 +149,318 @@
   }
 
 
+
+  /* =========================================================
+     TARGETED PROJECT PAGES — MIT-STYLE CASE STUDIES
+  ========================================================= */
+  .section-intro{
+    color:var(--text-muted);
+    max-width:680px !important;
+    margin-top:16px !important;
+    font-size:15.5px !important;
+    line-height:1.75;
+  }
+
+  .project-page{
+    padding:72px 0;
+    border-top:1px solid var(--border-soft);
+  }
+
+  .project-page:first-of-type{
+    border-top:none;
+    padding-top:0;
+  }
+
+  .project-header{
+    display:grid;
+    grid-template-columns:64px 1fr;
+    gap:20px;
+    align-items:start;
+    margin-bottom:42px;
+  }
+
+  .project-number{
+    font-family:'JetBrains Mono',monospace;
+    font-size:13px;
+    color:var(--accent);
+    padding-top:7px;
+  }
+
+  .project-heading h3{
+    font-family:'Space Grotesk',sans-serif;
+    font-size:clamp(28px,4vw,46px);
+    line-height:1.05;
+    margin:8px 0 15px;
+    font-weight:600;
+  }
+
+  .project-tags{
+    display:flex;
+    flex-wrap:wrap;
+    align-items:center;
+    gap:0;
+    color:var(--text-dim);
+    font-family:'JetBrains Mono',monospace;
+    font-size:11.5px;
+    line-height:1.8;
+  }
+
+  .project-tags span{
+    color:var(--text-muted);
+  }
+
+  .project-tags span::before{
+    content:"·";
+    color:var(--text-dim);
+    margin:0 9px;
+  }
+
+  .project-grid{
+    display:grid;
+    grid-template-columns:minmax(280px,.82fr) minmax(420px,1.18fr);
+    gap:64px;
+    align-items:start;
+  }
+
+  .project-info{
+    display:flex;
+    flex-direction:column;
+    gap:34px;
+  }
+
+  .project-block{
+    max-width:600px;
+  }
+
+  .project-label{
+    color:var(--accent);
+    font-family:'JetBrains Mono',monospace;
+    font-size:10.5px;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    margin-bottom:11px;
+  }
+
+  .project-block h4{
+    font-family:'Space Grotesk',sans-serif;
+    font-size:19px;
+    line-height:1.35;
+    font-weight:600;
+    margin-bottom:12px;
+  }
+
+  .project-block p{
+    color:var(--text-muted);
+    font-size:14.5px;
+    line-height:1.75;
+  }
+
+  .technical-list{
+    display:flex;
+    flex-wrap:wrap;
+    gap:7px;
+  }
+
+  .technical-list span{
+    border:1px solid var(--border);
+    background:var(--surface);
+    color:var(--text-muted);
+    padding:6px 9px;
+    border-radius:3px;
+    font-family:'JetBrains Mono',monospace;
+    font-size:10.5px;
+  }
+
+  .outcome-block{
+    border-left:2px solid var(--accent);
+    padding-left:16px;
+  }
+
+  .project-visuals{
+    display:flex;
+    flex-direction:column;
+    gap:14px;
+  }
+
+  .project-image{
+    position:relative;
+    margin:0;
+    overflow:hidden;
+    border:1px solid var(--border-soft);
+    background:var(--surface);
+  }
+
+  .project-image img{
+    width:100%;
+    height:100%;
+    display:block;
+    object-fit:contain;
+    transition:transform .45s ease;
+  }
+
+  .project-image:hover img{
+    transform:scale(1.025);
+  }
+
+  .project-image-large{
+    aspect-ratio:16/10;
+  }
+
+  .project-image-row{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:14px;
+  }
+
+  .project-image-row .project-image{
+    aspect-ratio:4/3;
+  }
+
+  .project-image figcaption{
+    position:absolute;
+    left:10px;
+    bottom:10px;
+    color:var(--text);
+    background:rgba(11,12,14,.78);
+    backdrop-filter:blur(7px);
+    border:1px solid rgba(255,255,255,.08);
+    border-radius:100px;
+    padding:5px 9px;
+    font-family:'JetBrains Mono',monospace;
+    font-size:9.5px;
+    letter-spacing:.03em;
+  }
+
+  /* HERO PHOTO */
+  .hero-photo{
+    width:100%;
+    max-width:360px;
+    aspect-ratio:4/5;
+    object-fit:cover;
+    border:1px solid var(--border);
+    background:var(--surface);
+    opacity:.92;
+  }
+
+  .hero-art .hero-photo{
+    max-width:340px;
+  }
+
+  /* CLIENT LOGOS */
+  .client-logo{
+    height:60px;
+    width:auto;
+    max-width:180px;
+    object-fit:contain;
+    opacity:.72;
+    filter:grayscale(100%);
+    transition:opacity .25s ease, filter .25s ease, transform .25s ease;
+  }
+
+  .client-logo:hover{
+    opacity:1;
+    filter:grayscale(0%);
+    transform:translateY(-2px);
+  }
+
+  /* EXPERIENCE SECTION */
+  .experience-grid{
+    display:grid;
+    grid-template-columns:1fr;
+    gap:0;
+  }
+
+  .experience-item{
+    display:grid;
+    grid-template-columns:150px 1fr;
+    gap:35px;
+    padding:30px 0;
+    border-top:1px solid var(--border-soft);
+  }
+
+  .experience-item:last-child{
+    border-bottom:1px solid var(--border-soft);
+  }
+
+  .experience-date{
+    color:var(--text-dim);
+    font-family:'JetBrains Mono',monospace;
+    font-size:11.5px;
+    padding-top:4px;
+  }
+
+  .experience-role{
+    font-family:'Space Grotesk',sans-serif;
+    font-size:19px;
+    font-weight:600;
+    margin-bottom:4px;
+  }
+
+  .experience-company{
+    color:var(--accent);
+    font-family:'JetBrains Mono',monospace;
+    font-size:11px;
+    margin-bottom:12px;
+  }
+
+  .experience-description{
+    color:var(--text-muted);
+    font-size:14.5px;
+    line-height:1.75;
+    max-width:760px;
+  }
+
+  @media(max-width:900px){
+    .project-grid{
+      grid-template-columns:1fr;
+      gap:38px;
+    }
+
+    .project-visuals{
+      order:1;
+    }
+
+    .project-info{
+      order:2;
+    }
+
+    .project-header{
+      grid-template-columns:42px 1fr;
+    }
+
+    .experience-item{
+      grid-template-columns:110px 1fr;
+      gap:20px;
+    }
+  }
+
+  @media(max-width:600px){
+    .project-page{
+      padding:55px 0;
+    }
+
+    .project-image-row{
+      grid-template-columns:1fr;
+    }
+
+    .project-header{
+      margin-bottom:30px;
+    }
+
+    .project-heading h3{
+      font-size:30px;
+    }
+
+    .experience-item{
+      grid-template-columns:1fr;
+      gap:8px;
+    }
+
+    .hero-photo{
+      max-width:280px;
+    }
+  }
+
   /* ---------- EXPERIENCE (minimal timeline) ---------- */
   .tl{position:relative; padding-left:2px;}
   .tl-item{display:grid; grid-template-columns:150px 24px 1fr; gap:0; padding-bottom:56px; position:relative;}
@@ -226,7 +538,7 @@
           
           
             
-        <img src="image/mou.jpeg" alt="2">
+        <img src="image/mou.jpeg" alt="Mouadh Sehli — Mechanical Design Engineer" class="hero-photo">
             
         <p class="hero-sub reveal">I'm Mouadh Sehli — I design hardware that survives contact with tolerances, tooling, and deadlines. <b>Three years</b> of experience across SolidWorks, FEA, and ANSYS, from first sketch to first article.</p>
         <div class="hero-cta reveal">
@@ -343,247 +655,930 @@
     </div>
   </section>
 
-<!-- ============ WORK ============ -->
+<!-- =========================================================
+     WORK / TARGETED PROJECTS
+========================================================= -->
+
 <section id="work">
+
   <div class="wrap">
 
+    <!-- ================= SECTION HEADER ================= -->
     <div class="section-head reveal">
-      <div class="kicker">Selected Work</div>
-      <h2>Product Design Portfolio.</h2>
-    </div>
 
-    <!-- ================= CAD DESIGN ================= -->
-    <div class="section-head reveal" style="margin-top:80px;">
-      <div class="kicker">CAD Design</div>
-      <h2>Engineering & Product Development.</h2>
-    </div>
+      <div class="kicker">Selected Projects</div>
 
-    <div class="case-list reveal">
+      <h2>Engineering Projects.</h2>
 
-      <article class="case">
-        <div class="case-head">
-          <span class="case-index">01</span>
-          <h3 class="case-title">MESH360 PRO</h3>
-          <div class="case-tags">SolidWorks · Luceor · <span>Mechanical Design</span></div>
-        </div>
-
-        <div class="case-body">
-          <div class="case-gallery">
-            <figure class="g-main">
-              <img src="image/mesh360-cad.png" alt="MESH360 PRO CAD Model">
-              <figcaption>CAD Model — SolidWorks</figcaption>
-            </figure>
-          </div>
-
-          <div class="case-text">
-            <p class="case-desc">
-              Complete mechanical design of the MESH360 PRO enclosure and internal architecture, optimized for manufacturing and outdoor deployment.
-            </p>
-          </div>
-        </div>
-      </article>
-
-      <article class="case">
-        <div class="case-head">
-          <span class="case-index">02</span>
-          <h3 class="case-title">AIR3004</h3>
-          <div class="case-tags">SolidWorks · Luceor · <span>Enclosure Design</span></div>
-        </div>
-
-        <div class="case-body">
-          <div class="case-gallery">
-            <figure class="g-main">
-              <img src="image/air3004-cad.png" alt="AIR3004 CAD Model">
-              <figcaption>CAD Model — SolidWorks</figcaption>
-            </figure>
-          </div>
-
-          <div class="case-text">
-            <p class="case-desc">
-              Outdoor enclosure designed around electronics integration, mounting hardware, sealing requirements, and manufacturability constraints.
-            </p>
-          </div>
-        </div>
-      </article>
-
-    </div>
-
-    <!-- ================= REAL PRODUCTS ================= -->
-    <div class="section-head reveal" style="margin-top:120px;">
-      <div class="kicker">Real Products & Assemblies</div>
-      <h2>From Design to Reality.</h2>
-    </div>
-
-    <div class="case-list reveal">
-
-      <article class="case">
-        <div class="case-head">
-          <span class="case-index">03</span>
-          <h3 class="case-title">MESH360 PRO Prototype</h3>
-          <div class="case-tags">Prototype · Assembly · <span>Validation</span></div>
-        </div>
-
-        <div class="case-body">
-          <div class="case-gallery">
-            
-              <img src="image/mesh360-hero.jpg" alt="MESH360 PRO Prototype">
-              <figcaption>Prototype Build</figcaption>
-            </figure>
-          </div>
-
-          <div class="case-text">
-            <p class="case-desc">
-              Physical prototype assembled and tested to validate fit, functionality, and integration before production.
-            </p>
-          </div>
-        </div>
-      </article>
-
-      <article class="case">
-        <div class="case-head">
-          <span class="case-index">04</span>
-          <h3 class="case-title">MESH360 PRO Final  Product</h3>
-          <div class="case-tags">Manufacturing · Production</div>
-        </div>
-
-        <div class="case-body">
-          <div class="case-gallery">
-            
-              <img src="image/mesh360-alt.jpeg" alt="MESH360 PRO Final Assembly">
-              <figcaption>Final Assembly</figcaption>
-            </figure>
-          </div>
-
-          <div class="case-text">
-            <p class="case-desc">
-              Production-ready assembly showcasing the transition from CAD design to a fully manufactured product.
-            </p>
-          </div>
-        </div>
-      </article>
-
-      <article class="case">
-        <div class="case-head">
-          <span class="case-index">05</span>
-          <h3 class="case-title">AIR3004 Product Visualization</h3>
-          <div class="case-tags">Industrial Design · Product Development</div>
-        </div>
-
-        <div class="case-body">
-          <div class="case-gallery">
-            <figure class="g-main">
-              <img src="image/air3004-hero.jpg" alt="AIR3004 Product Render">
-              <figcaption>Product Visualization</figcaption>
-            </figure>
-          </div>
-
-          <div class="case-text">
-            <p class="case-desc">
-              Final product visualization highlighting enclosure geometry, proportions, and design intent.
-            </p>
-          </div>
-        </div>
-      </article>
-<!-- PROJECT 06 -->
-<article class="case">
-  <div class="case-head">
-    <span class="case-index">06</span>
-    <h3 class="case-title">RDK Antenna System CAD</h3>
-    <div class="case-tags">SolidWorks · Product Design · <span>CAD Development</span></div>
-  </div>
-
-  <div class="case-body">
-    <div class="case-gallery">
-      <figure class="g-main">
-        <img src="image/RDKCAD.jpg" alt="RDK CAD Model">
-        <figcaption>CAD Model — SolidWorks</figcaption>
-      </figure>
-    </div>
-
-    <div class="case-text">
-      <p class="case-desc">
-        Mechanical design and integration of the RDK communication unit, including enclosure architecture, mounting interfaces, and manufacturable components.
+      <p class="section-intro">
+        A selection of mechanical product development projects,
+        from engineering requirements and 3D CAD to physical
+        prototypes, manufacturing, and final products.
       </p>
-    </div>
-  </div>
-</article>
-<article class="case">
-  <div class="case-head">
-    <span class="case-index">06</span>
-    <h3 class="case-title">RDK Antenna System PRODUCT</h3>
-    <div class="case-tags">SolidWorks · Product Design · <span>CAD Development</span></div>
-  </div>
 
-  <div class="case-body">
-    <div class="case-gallery">
-
-      <figure class="g-main">
-        <img src="image/RDK.jpg" alt="RDK CAD Model">
-        <figcaption>ASSEMBLY2</figcaption>
-      </figure>
     </div>
 
-    <div class="case-text">
-      <p class="case-desc">
-        Mechanical design and integration of the RDK communication unit, including enclosure architecture, mounting interfaces, and manufacturable components.
-      </p>
-    </div>
-  </div>
-</article>
-<!-- PROJECT 07 -->
-<article class="case">
-  <div class="case-head">
-    <span class="case-index">07</span>
-    <h3 class="case-title">MINIMESH</h3>
-    <div class="case-tags">SolidWorks · Product Design · <span>Compact Enclosure</span></div>
+
+    <!-- =====================================================
+         PROJECT 01 — MESH360 PRO
+    ====================================================== -->
+
+    <article class="project-page reveal">
+
+      <div class="project-header">
+
+        <div class="project-number">
+          01
+        </div>
+
+        <div class="project-heading">
+
+          <div class="kicker">
+            Product Design · Luceor
+          </div>
+
+          <h3>
+            MESH360 PRO
+          </h3>
+
+          <div class="project-tags">
+            SolidWorks
+            <span>Mechanical Design</span>
+            <span>Enclosure Development</span>
+            <span>Manufacturing</span>
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <div class="project-grid">
+
+        <!-- ================= PROJECT INFORMATION ================= -->
+
+        <div class="project-info">
+
+
+          <!-- OBJECTIVE -->
+
+          <div class="project-block">
+
+            <div class="project-label">
+              Objective
+            </div>
+
+            <h4>
+              Develop a robust mechanical enclosure for
+              outdoor networking equipment.
+            </h4>
+
+            <p>
+              The objective was to develop the mechanical architecture
+              of the MESH360 PRO around the electronic components while
+              considering enclosure geometry, mounting requirements,
+              assembly, manufacturability, and outdoor deployment.
+            </p>
+
+          </div>
+
+
+          <!-- MY CONTRIBUTION -->
+
+          <div class="project-block">
+
+            <div class="project-label">
+              My Contribution
+            </div>
+
+            <p>
+              I worked on the mechanical product development,
+              including 3D CAD modelling, enclosure architecture,
+              internal component integration, mounting interfaces,
+              and manufacturing-oriented design decisions.
+            </p>
+
+          </div>
+
+
+          <!-- TECHNICAL DETAILS -->
+
+          <div class="project-block">
+
+            <div class="project-label">
+              Technical Details & Skills
+            </div>
+
+            <div class="technical-list">
+
+              <span>SolidWorks</span>
+              <span>3D CAD</span>
+              <span>Mechanical Design</span>
+              <span>DFMA</span>
+              <span>Assembly Design</span>
+              <span>Manufacturing Drawings</span>
+              <span>GD&T</span>
+              <span>Component Integration</span>
+
+            </div>
+
+          </div>
+
+
+          <!-- OUTCOMES -->
+
+          <div class="project-block outcome-block">
+
+            <div class="project-label">
+              Outcomes & Results
+            </div>
+
+            <p>
+              The mechanical design was developed into a physical
+              product, allowing the CAD architecture, component
+              integration, assembly interfaces, and enclosure
+              concept to be validated through the manufactured unit.
+            </p>
+
+          </div>
+
+        </div>
+
+<!-- ================= PROJECT VISUALS ================= -->
+
+<div class="project-visuals">
+
+  <!-- TWO 3D CAD IMAGES SIDE BY SIDE -->
+  <div class="project-image-row">
+
+    <figure class="project-image">
+
+      <img
+        src="image/mesh360-cad.png"
+        alt="MESH360 PRO 3D CAD Model"
+      >
+
+      <figcaption>
+        3D Mechanical Development — SolidWorks
+      </figcaption>
+
+    </figure>
+
+
+    <figure class="project-image">
+
+      <img
+        src="image/m360.png"
+        alt="MESH360 PRO 3D CAD Model — View 2"
+      >
+
+      <figcaption>
+        3D Product Development — SolidWorks
+      </figcaption>
+
+    </figure>
+
   </div>
 
-  <div class="case-body">
-    <div class="case-gallery">
-      <figure class="g-main">
-        <img src="image/MINIMESH.jpg" alt="MINIMESH CAD Model">
-        <figcaption>CAD Model — SolidWorks</figcaption>
-      </figure>
-    </div>
 
-    <div class="case-text">
-      <p class="case-desc">
-        Compact wireless networking enclosure designed for reliability, ease of assembly, and efficient use of internal space.
-      </p>
-    </div>
-  </div>
-</article>
-    </div>
-<!-- PROJECT 08-->
-<article class="case">
-  <div class="case-head">
-    <span class="case-index">08</span>
-    <h3 class="case-title">METALIC STRUCTURE</h3>
-    <div class="case-tags">SolidWorks · Product Design · <span>Compact Enclosure</span></div>
+  <!-- REAL PRODUCT IMAGES -->
+  <div class="project-image-row">
+
+    <figure class="project-image">
+
+      <img
+        src="image/mesh360-hero.jpg"
+        alt="MESH360 PRO Physical Product"
+      >
+
+      <figcaption>
+        Physical Product
+      </figcaption>
+
+    </figure>
+
+
+    <figure class="project-image">
+
+      <img
+        src="image/mesh360-alt.jpeg"
+        alt="MESH360 PRO Final Assembly"
+      >
+
+      <figcaption>
+        Final Assembly
+      </figcaption>
+
+    </figure>
+
   </div>
 
-  <div class="case-body">
-    <div class="case-gallery">
-      <figure class="g-main">
-        <img src="image/PEP_eng_project.png" alt=" CAD Model">
-        <figcaption>CAD Model — SolidWorks</figcaption>
-      </figure>
-      <figure class="g-main">
-        <img src="image/PEPENG2.png" alt="CAD Model">
-        <figcaption>CAD Model — SolidWorks</figcaption>
-      </figure>
-    </div>
+</div>
 
-    <div class="case-text">
-      <p class="case-desc">
-        Compact wireless networking enclosure designed for reliability, ease of assembly, and efficient use of internal space.
-      </p>
-    </div>
+    </article>
+
+
+
+    <!-- =====================================================
+         PROJECT 02 — AIR3004
+    ====================================================== -->
+
+    <article class="project-page reveal">
+
+      <div class="project-header">
+
+        <div class="project-number">
+          02
+        </div>
+
+        <div class="project-heading">
+
+          <div class="kicker">
+            Product Design · Luceor
+          </div>
+
+          <h3>
+            AIR3004
+          </h3>
+
+          <div class="project-tags">
+            SolidWorks
+            <span>Enclosure Design</span>
+            <span>Electronics Integration</span>
+            <span>Manufacturing</span>
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <div class="project-grid">
+
+        <!-- ================= PROJECT INFORMATION ================= -->
+
+        <div class="project-info">
+
+
+          <!-- OBJECTIVE -->
+
+          <div class="project-block">
+
+            <div class="project-label">
+              Objective
+            </div>
+
+            <h4>
+              Design a compact and robust outdoor enclosure
+              around the electronic architecture.
+            </h4>
+
+            <p>
+              The project focused on developing an enclosure capable
+              of accommodating the internal electronics while providing
+              appropriate mounting interfaces, assembly access,
+              sealing considerations, and a manufacturable geometry.
+            </p>
+
+          </div>
+
+
+          <!-- MY CONTRIBUTION -->
+
+          <div class="project-block">
+
+            <div class="project-label">
+              My Contribution
+            </div>
+
+            <p>
+              I developed the mechanical 3D architecture and enclosure,
+              integrated the internal components, defined mounting
+              interfaces, and adapted the design to manufacturing
+              and assembly requirements.
+            </p>
+
+          </div>
+
+
+          <!-- TECHNICAL DETAILS -->
+
+          <div class="project-block">
+
+            <div class="project-label">
+              Technical Details & Skills
+            </div>
+
+            <div class="technical-list">
+
+              <span>SolidWorks</span>
+              <span>3D CAD</span>
+              <span>Enclosure Design</span>
+              <span>Electronics Integration</span>
+              <span>DFMA</span>
+              <span>Assembly</span>
+              <span>Sealing</span>
+              <span>Manufacturing</span>
+
+            </div>
+
+          </div>
+
+
+          <!-- OUTCOMES -->
+
+          <div class="project-block outcome-block">
+
+            <div class="project-label">
+              Outcomes & Results
+            </div>
+
+            <p>
+              The design resulted in a complete mechanical product
+              architecture that could be manufactured and assembled
+              around the electronic system, providing a direct link
+              between the digital CAD model and the final product.
+            </p>
+
+          </div>
+
+        </div>
+
+<!-- ================= PROJECT VISUALS ================= -->
+
+<div class="project-visuals">
+
+  <!-- TWO CAD IMAGES SIDE BY SIDE -->
+  <div class="project-image-row">
+
+    <figure class="project-image">
+
+      <img
+        src="image/air3004-cad.png"
+        alt="AIR3004 3D CAD Model"
+      >
+
+      <figcaption>
+        3D Mechanical Design — SolidWorks
+      </figcaption>
+
+    </figure>
+
+
+    <figure class="project-image">
+
+      <img
+        src="image/air3004-cad2.png"
+        alt="AIR3004 3D CAD Model — View 2"
+      >
+
+      <figcaption>
+        3D Mechanical Design — SolidWorks
+      </figcaption>
+
+    </figure>
+
   </div>
-</article>
-    </div>
+
+
+  <!-- REAL PRODUCT -->
+  <figure class="project-image project-image-large">
+
+    <img
+      src="image/air3004-hero.jpg"
+      alt="AIR3004 Physical Product"
+    >
+
+    <figcaption>
+      Final Physical Product
+    </figcaption>
+
+  </figure>
+
+</div>
+
+    </article>
+
+
+
+    <!-- =====================================================
+         PROJECT 03 — RDK ANTENNA SYSTEM
+    ====================================================== -->
+
+    <article class="project-page reveal">
+
+      <div class="project-header">
+
+        <div class="project-number">
+          03
+        </div>
+
+        <div class="project-heading">
+
+          <div class="kicker">
+            Mechanical Product Development
+          </div>
+
+          <h3>
+            RDK Antenna System
+          </h3>
+
+          <div class="project-tags">
+            SolidWorks
+            <span>Product Design</span>
+            <span>Mechanical Integration</span>
+            <span>Assembly</span>
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <div class="project-grid">
+
+        <!-- ================= PROJECT INFORMATION ================= -->
+
+        <div class="project-info">
+
+
+          <!-- OBJECTIVE -->
+
+          <div class="project-block">
+
+            <div class="project-label">
+              Objective
+            </div>
+
+            <h4>
+              Develop the mechanical architecture and
+              integration of a communication unit.
+            </h4>
+
+            <p>
+              The objective was to create a manufacturable mechanical
+              solution integrating the communication electronics,
+              enclosure components, mounting interfaces, and associated
+              hardware into a functional product assembly.
+            </p>
+
+          </div>
+
+
+          <!-- MY CONTRIBUTION -->
+
+          <div class="project-block">
+
+            <div class="project-label">
+              My Contribution
+            </div>
+
+            <p>
+              I contributed to the mechanical 3D development of the
+              system, including enclosure architecture, component
+              integration, mounting interfaces, and mechanical
+              assembly development.
+            </p>
+
+          </div>
+
+
+          <!-- TECHNICAL DETAILS -->
+
+          <div class="project-block">
+
+            <div class="project-label">
+              Technical Details & Skills
+            </div>
+
+            <div class="technical-list">
+
+              <span>SolidWorks</span>
+              <span>3D CAD</span>
+              <span>Mechanical Integration</span>
+              <span>Enclosure Design</span>
+              <span>Assembly Design</span>
+              <span>Mounting Interfaces</span>
+              <span>DFMA</span>
+
+            </div>
+
+          </div>
+
+
+          <!-- OUTCOMES -->
+
+          <div class="project-block outcome-block">
+
+            <div class="project-label">
+              Outcomes & Results
+            </div>
+
+            <p>
+              The final mechanical architecture was translated into
+              a physical assembly, demonstrating the integration of
+              the individual mechanical and electronic components into
+              a complete communication product.
+            </p>
+
+          </div>
+
+        </div>
+
+
+        <!-- ================= PROJECT VISUALS ================= -->
+
+        <div class="project-visuals">
+
+          <figure class="project-image project-image-large">
+
+            <img
+              src="image/RDKCAD.jpg"
+              alt="RDK Antenna System 3D CAD Model"
+            >
+
+            <figcaption>
+              3D CAD Development — SolidWorks
+            </figcaption>
+
+          </figure>
+
+
+          <figure class="project-image project-image-large">
+
+            <img
+              src="image/RDK.jpg"
+              alt="RDK Antenna System Physical Product"
+            >
+
+            <figcaption>
+              Physical Product Assembly
+            </figcaption>
+
+          </figure>
+
+        </div>
+
+      </div>
+
+    </article>
+
+
+
+    <!-- =====================================================
+         PROJECT 04 — METALLIC STRUCTURE
+    ====================================================== -->
+
+    <article class="project-page reveal">
+
+      <div class="project-header">
+
+        <div class="project-number">
+          04
+        </div>
+
+        <div class="project-heading">
+
+          <div class="kicker">
+            Mechanical Engineering
+          </div>
+
+          <h3>
+            Metallic Structure
+          </h3>
+
+          <div class="project-tags">
+            SolidWorks
+            <span>Mechanical Design</span>
+            <span>Structural Design</span>
+            <span>Fabrication</span>
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <div class="project-grid">
+
+        <!-- ================= PROJECT INFORMATION ================= -->
+
+        <div class="project-info">
+
+
+          <!-- OBJECTIVE -->
+
+          <div class="project-block">
+
+            <div class="project-label">
+              Objective
+            </div>
+
+            <h4>
+              Develop a manufacturable metallic mechanical
+              structure from a 3D engineering concept.
+            </h4>
+
+            <p>
+              The project focused on developing the structural
+              arrangement, component interfaces, and overall
+              mechanical architecture required to transform the
+              engineering concept into a manufacturable assembly.
+            </p>
+
+          </div>
+
+
+          <!-- MY CONTRIBUTION -->
+
+          <div class="project-block">
+
+            <div class="project-label">
+              My Contribution
+            </div>
+
+            <p>
+              I worked on the 3D mechanical modelling and structural
+              arrangement, with attention to component integration,
+              assembly interfaces, manufacturability, and the
+              transition from CAD geometry to physical fabrication.
+            </p>
+
+          </div>
+
+
+          <!-- TECHNICAL DETAILS -->
+
+          <div class="project-block">
+
+            <div class="project-label">
+              Technical Details & Skills
+            </div>
+
+            <div class="technical-list">
+
+              <span>SolidWorks</span>
+              <span>3D CAD</span>
+              <span>Mechanical Design</span>
+              <span>Structural Design</span>
+              <span>Assembly Design</span>
+              <span>Manufacturing</span>
+
+            </div>
+
+          </div>
+
+
+          <!-- OUTCOMES -->
+
+          <div class="project-block outcome-block">
+
+            <div class="project-label">
+              Outcomes & Results
+            </div>
+
+            <p>
+              The engineering model provided the basis for the
+              physical mechanical structure, demonstrating the
+              complete workflow from digital design and component
+              arrangement to fabrication and assembly.
+            </p>
+
+          </div>
+
+        </div>
+
+
+        <!-- ================= PROJECT VISUALS ================= -->
+
+        <div class="project-visuals">
+
+          <div class="project-image-row">
+
+            <figure class="project-image">
+
+              <img
+                src="image/PEP_eng_project.png"
+                alt="Metallic Structure 3D CAD Model"
+              >
+
+              <figcaption>
+                3D CAD Model — SolidWorks
+              </figcaption>
+
+            </figure>
+
+
+            <figure class="project-image">
+
+              <img
+                src="image/PEPENG2.png"
+                alt="Metallic Structure Engineering Assembly"
+              >
+
+              <figcaption>
+                Engineering Assembly
+              </figcaption>
+
+            </figure>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </article>
+
+
+    <!-- =====================================================
+         PROJECT 05 — MINIMESH
+    ====================================================== -->
+
+    <article class="project-page reveal">
+
+      <div class="project-header">
+
+        <div class="project-number">
+          05
+        </div>
+
+        <div class="project-heading">
+
+          <div class="kicker">
+            Compact Product Design
+          </div>
+
+          <h3>
+            MINIMESH
+          </h3>
+
+          <div class="project-tags">
+            SolidWorks
+            <span>Product Design</span>
+            <span>Compact Enclosure</span>
+            <span>Assembly</span>
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <div class="project-grid">
+
+        <!-- ================= PROJECT INFORMATION ================= -->
+
+        <div class="project-info">
+
+
+          <!-- OBJECTIVE -->
+
+          <div class="project-block">
+
+            <div class="project-label">
+              Objective
+            </div>
+
+            <h4>
+              Develop a compact enclosure with efficient
+              internal packaging and easy assembly.
+            </h4>
+
+            <p>
+              The objective was to create a compact mechanical
+              architecture capable of efficiently housing the
+              internal electronics while maintaining accessible
+              assembly interfaces and a clean external form.
+            </p>
+
+          </div>
+
+
+          <!-- MY CONTRIBUTION -->
+
+          <div class="project-block">
+
+            <div class="project-label">
+              My Contribution
+            </div>
+
+            <p>
+              I worked on the mechanical product design, including
+              enclosure geometry, internal space optimization,
+              component integration, mounting features, and
+              assembly considerations.
+            </p>
+
+          </div>
+
+
+          <!-- TECHNICAL DETAILS -->
+
+          <div class="project-block">
+
+            <div class="project-label">
+              Technical Details & Skills
+            </div>
+
+            <div class="technical-list">
+
+              <span>SolidWorks</span>
+              <span>3D CAD</span>
+              <span>Product Design</span>
+              <span>Enclosure Design</span>
+              <span>Space Optimization</span>
+              <span>Assembly</span>
+              <span>DFMA</span>
+
+            </div>
+
+          </div>
+
+
+          <!-- OUTCOMES -->
+
+          <div class="project-block outcome-block">
+
+            <div class="project-label">
+              Outcomes & Results
+            </div>
+
+            <p>
+              The resulting mechanical architecture provided a compact
+              enclosure solution with optimized internal packaging
+              and an assembly-oriented product structure.
+            </p>
+
+          </div>
+
+        </div>
+
+
+        <!-- ================= PROJECT VISUALS ================= -->
+
+        <div class="project-visuals">
+
+          <figure class="project-image project-image-large">
+
+            <img
+              src="image/MINIMESH.jpg"
+              alt="MINIMESH Product Design"
+            >
+
+            <figcaption>
+              Product Design — SolidWorks
+            </figcaption>
+
+          </figure>
+
+        </div>
+
+      </div>
+
+    </article>
+
+
   </div>
+
 </section>
+
+
+  <!-- ============ EXPERIENCE ============ -->
+  <section id="experience">
+    <div class="wrap">
+
+      <div class="section-head reveal">
+        <div class="kicker">Experience</div>
+        <h2>Engineering experience.</h2>
+        <p>
+          Product development experience covering mechanical design,
+          CAD, simulation, manufacturing, and engineering documentation.
+        </p>
+      </div>
+
+      <div class="experience-grid">
+
+        <article class="experience-item reveal">
+          <div class="experience-date">2023 — Present</div>
+
+          <div>
+            <div class="experience-role">Mechanical Design Engineer </div>
+            <div class="experience-company">LUCEOR LABS</div>
+
+            <p class="experience-description">
+              Developed 3D CAD models and mechanical assemblies for
+              networking and tethered-drone products. Worked on enclosure
+              design, DFMA, manufacturing drawings, GD&amp;T, thermal and
+              structural simulations, prototyping, and supplier coordination.
+            </p>
+          </div>
+        </article>
+
+      </div>
+
+    </div>
+  </section>
 
 <!-- ============ CLIENTS ============ -->
 <section id="clients">
@@ -603,19 +1598,19 @@
 
       <img src="image/LUCEOR.png"
            alt="Luceor"
-           style="height:60px;width:auto;opacity:.8;filter:grayscale(100%);transition:.3s;">
+           class="client-logo">
 
       <img src="image/HEXA5.png"
            alt="HEXA5"
-           style="height:60px;width:auto;opacity:.8;filter:grayscale(100%);transition:.3s;">
+           class="client-logo">
 
       <img src="image/PEP.png"
            alt="PEP ENG"
-           style="height:60px;width:auto;opacity:.8;filter:grayscale(100%);transition:.3s;">
+           class="client-logo">
 
       <img src="image/DQS.png"
            alt="شركة الأفكار مبهرة"
-           style="height:60px;width:auto;opacity:.8;filter:grayscale(100%);transition:.3s;">
+           class="client-logo">
 
     </div>
   </div>
@@ -626,12 +1621,12 @@
     <div class="wrap">
       <div class="kicker contact-kicker reveal">Get in touch</div>
       <h2 class="reveal">Let's build something<br>that holds tolerance.</h2>
-      <a href="mailto:mouadh.sehli@example.com" class="contact-email reveal">mouadh.sehli@gmail.com</a>
+      <a href="mailto:mouadh.sehli@gmail.com" class="contact-email reveal">mouadh.sehli@gmail.com</a>
      <p><a href="https://wa.me/21620083229" class="contact-email reveal">WhatsApp: +216 20 083 229</a></p>
       
       <div class="social-row reveal">
         <a href="https://www.linkedin.com/in/mouadh-sehli" target="_blank" rel="noopener">LinkedIn</a>
-        <a href="#">Resume</a>
+        <a href="https://drive.google.com/drive/folders/1-LM6bVvCJGxM6EQnDrZ6wukKeg0Wz4Z7?usp=sharing" download>Resume</a>
       </div>
     </div>
   </section>
@@ -648,6 +1643,11 @@
     entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} });
   }, {threshold:0.12});
   items.forEach(el=>io.observe(el));
+
+    if (!('IntersectionObserver' in window)) {
+      document.querySelectorAll('.reveal').forEach(el => el.classList.add('in'));
+    }
+
 
   const header = document.getElementById('siteHeader');
   window.addEventListener('scroll', ()=>{
